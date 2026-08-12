@@ -1,0 +1,334 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width, initial-scale=1.0">
+
+    <title>For Acaa 💌</title>
+
+    <link rel="stylesheet" href="Love2.css">
+</head>
+
+<body>
+
+    <!-- =========================
+         MUSIC
+    ========================== -->
+
+    <audio id="music" loop>
+        <source src="magnolia.mp3" type="audio/mpeg">
+    </audio>
+
+
+    <!-- =========================
+         HALAMAN GIFT
+    ========================== -->
+
+    <div class="page" id="home">
+
+        <div class="glow"></div>
+
+        <div class="content">
+
+            <div class="box-wrap" id="giftButton">
+
+                <div class="gift">
+
+                    <div class="bow">🎀</div>
+
+                    <div class="lid" id="lid"></div>
+
+                    <div class="gift-body"></div>
+
+                </div>
+
+            </div>
+
+
+            <div class="for">
+                For Aca
+            </div>
+
+
+            <div class="hint">
+                click the gift 🎁
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         HALAMAN SURAT
+    ========================== -->
+
+    <div class="page letter-page" id="letterPage">
+
+        <div class="letter">
+
+            <div class="from">
+                From: Nabil<br>
+                For: Aca
+            </div>
+
+
+            <h1>
+                For you, Aca ♡
+            </h1>
+
+
+            <p>
+                Hi My love, meeting u was like my best
+                part of life, its too much if i explain how
+                perfect u're, u have kind a kind heart like an
+                angel and i hope i will love u till the world stops
+                turning.
+            </p>
+
+
+            <p>
+                Please don't be scared to tell me about your
+                problems. You don't bother me. I always listen
+                to you, no matter what.
+
+                Dan kalau kamu masih nggak percaya diri,
+                kata bunda aku, di dunia ini nggak ada yang
+                bener-bener perfect.
+
+                Tapi, aku bakal lengkapin semuanya di kamu,
+                so that you can be more perfect without any
+                lack of confidence.
+            </p>
+
+
+            <p>
+                Thank u for making me feel like I'm the most
+                special boy in the world.
+
+                I love u so muchhh.
+
+                Makasih banyak pokoknya.
+
+                Dan makasih juga udah selalu bikin aku
+                tersenyum setiap hari.
+
+                (jangan salting bacanya ya wkwkwkkw)
+            </p>
+
+
+            <div class="signature">
+                — from someone who appreciates you ♡
+            </div>
+
+
+            <div class="button-area">
+
+                <button onclick="location.reload()">
+                    open again ✨
+                </button>
+
+            </div>
+
+        </div>
+
+    </div>
+
+
+
+    <!-- =========================
+         JAVASCRIPT
+    ========================== -->
+
+    <script>
+
+        document.addEventListener("DOMContentLoaded", function () {
+
+            const giftButton =
+                document.getElementById("giftButton");
+
+            giftButton.addEventListener("click", openGift);
+
+        });
+
+
+
+        function openGift() {
+
+            /* =====================
+               MUSIC
+            ====================== */
+
+            const music =
+                document.getElementById("music");
+
+            music.volume = 0.6;
+
+            music.play().catch(function (error) {
+                console.log("Musik tidak bisa diputar:", error);
+            });
+
+
+
+            /* =====================
+               ELEMENT GIFT
+            ====================== */
+
+            const lid =
+                document.getElementById("lid");
+
+            const bow =
+                document.querySelector(".bow");
+
+            const home =
+                document.getElementById("home");
+
+            const letterPage =
+                document.getElementById("letterPage");
+
+
+
+            /* =====================
+               BUKA BOX
+            ====================== */
+
+            lid.style.transform =
+                "translateY(-85px) rotate(-8deg)";
+
+
+            bow.style.transform =
+                "translateX(-50%) translateY(-85px) rotate(-10deg)";
+
+
+            bow.style.opacity = "0";
+
+
+
+            /* =====================
+               BUNGA
+            ====================== */
+
+            const flowers = [
+
+                "🌹",
+                "🌸",
+                "🌷",
+                "🌺",
+                "💐",
+                "🌹",
+                "🌸",
+                "🌷",
+                "🌺",
+                "🌹",
+                "🌸",
+                "🌷",
+                "💐",
+                "🌹",
+                "🌺"
+
+            ];
+
+
+
+            flowers.forEach(function (flower, i) {
+
+                const el =
+                    document.createElement("div");
+
+
+                el.className = "flower";
+
+
+                el.textContent = flower;
+
+
+
+                const x =
+                    (Math.random() * 90 - 45) + "vw";
+
+
+                const y =
+                    (-20 - Math.random() * 65) + "vh";
+
+
+                const s =
+                    (0.7 + Math.random() * 1.4)
+                    .toFixed(2);
+
+
+                const r =
+                    (Math.random() * 720 - 360)
+                    .toFixed(0) + "deg";
+
+
+
+                el.style.left = "50%";
+
+                el.style.top = "50%";
+
+
+
+                el.style.setProperty(
+                    "--x",
+                    x
+                );
+
+
+                el.style.setProperty(
+                    "--y",
+                    y
+                );
+
+
+                el.style.setProperty(
+                    "--s",
+                    s
+                );
+
+
+                el.style.setProperty(
+                    "--r",
+                    r
+                );
+
+
+                el.style.animationDelay =
+                    (i * 0.08) + "s";
+
+
+
+                document.body.appendChild(el);
+
+
+
+                setTimeout(function () {
+
+                    el.remove();
+
+                }, 3500);
+
+            });
+
+
+
+            /* =====================
+               BUKA SURAT
+            ====================== */
+
+            setTimeout(function () {
+
+                home.style.display = "none";
+
+                letterPage.classList.add("show");
+
+            }, 1800);
+
+        }
+
+    </script>
+
+</body>
+
+</html>
